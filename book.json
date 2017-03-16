@@ -1,0 +1,47 @@
+{
+    "gitbook": "3.x.x",
+    "structure": {
+        "readme": "README.adoc"
+    },
+    "plugins": [
+        "toggle-chapters",
+        "ungrey",
+        "splitter",
+        "anchors",
+        "theme-api"
+    ],
+    "variables": {
+        "apiman": {
+            "version": {
+                "release": "1.2.9.Final",
+                "snapshot": "1.2.10-SNAPSHOT"
+            }
+        },
+        "wildfly10": {
+            "version": "10.1.0.Final"
+        },
+        "wildfly9": {
+            "version": "9.0.2.Final"
+        }
+    },
+
+    "pluginsConfig": {
+        "theme-api": {
+            "languages": [
+                {
+                    "lang": "shellsession",
+                    "name": "Shell",
+                    "default": true
+                },
+                {
+                    "lang": "json",
+                    "name": "Vert.x"
+                },
+                {
+                    "lang": "properties",
+                    "name": "Servlet"
+                }
+            ]
+        }
+    }
+}

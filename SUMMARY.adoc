@@ -1,0 +1,18 @@
+= Apiman Documentation
+
+== Installation Guide
+
+=== Download & Install
+. link:installation-guide/install-overview.adoc[Platforms]
+.. link:installation-guide/vertx/install.adoc[Vert.x Gateway]
+.. link:installation-guide/wildfly/install.adoc[EAP & WildFly]
+... link:installation-guide/wildfly/install.adoc#_installing_in_wildfly_10[WildFly 10]
+... link:installation-guide/wildfly/install.adoc#_installing_in_wildfly_9[WildFly 9]
+... link:installation-guide/wildfly/install.adoc#_installing_in_jboss_eap_7[EAP 7]
+... link:installation-guide/wildfly/install.adoc#_installing_using_docker[Docker]
+
+=== Configuration
+. link:installation-guide/configuration-overview.adoc[Platforms]
+.. link:installation-guide/vertx/configuration.adoc[Vert.x]
+.. link:installation-guide/wildfly/configuration.adoc[EAP & WildFly]
+. link:installation-guide/configuration.adoc[Configuration Guide]

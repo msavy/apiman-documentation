@@ -1,0 +1,156 @@
+= Wildfly & EAP
+:toc:
+
+== Overview
+This chapter explores downloading and installing the apiman quickstarts which consists of both the _apiman manager and UI_ and _apiman gateway_.
+
+== Installing in WildFly 10
+The apiman primarily targets WildFly 10 as a runtime environment.
+In order to install apiman you will need to download both WildFly 10 and the apiman overlay distribution.
+Once both are downloaded, it's a simple matter of unpacking both into the same location.
+
+=== Download
+First you will need to download both WildFly 10 and apiman:
+
+* http://download.jboss.org/wildfly/10.1.0.Final/{{ book.wildfly10.version }}.zip[Download WildFly 10]
+* http://downloads.jboss.org/apiman/{{ book.apiman.version.release }}/apiman-distro-wildfly10-{{ book.apiman.version.release }}-overlay.zip[Download apiman {{ book.apiman.version.release }}]
+
+....
+curl http://download.jboss.org/wildfly/10.1.0.Final/{{ book.wildfly10.version }}.zip -o {{ book.wildfly10.version }}.zip
+
+curl http://downloads.jboss.org/apiman/{{ book.apiman.version.release }}/apiman-distro-wildfly10-{{ book.apiman.version.release }}-overlay.zip -o apiman-distro-wildfly10-{{ book.apiman.version.release }}-overlay.zip
+....
+
+=== Unpack
+Once both files have been downloaded, simply unpack both in the same location.
+
+....
+unzip {{ book.wildfly10.version }}.zip
+
+unzip -o apiman-distro-wildfly10-{{ book.apiman.version.release }}-overlay.zip -d {{ book.wildfly10.version }}
+....
+
+=== Run WildFly 10
+The apiman overlay contains everything needed to run apiman, including:
+
+* apiman binaries (several WAR files)
+* apiman-specific WildFly 10 configuration (*standalone-apiman.xml*)
+* apiman rdbms datasource (h2)
+* pre-configured *admin* user with password *admin123!*
+* pre-configured h2 database for the API Manager (populated with default values)
+* embedded Elasticsearch instance for metrics and gateway storage
+
+For this reason, there is no additional configuration required to run apiman.
+Simply start up WildFly using the apiman configuration file:
+
+....
+cd {{ book.wildfly10.version }}
+./bin/standalone.sh -c standalone-apiman.xml
+....
+
+== Installing in WildFly 9
+The apiman project can target WildFly 9 as a runtime environment.
+In order to install apiman you will need to download both WildFly 9 and the apiman overlay distribution.
+Once both are downloaded, it's a simple matter of unpacking both into the same location.
+
+=== Download
+First you will need to download both WildFly 9 and apiman:
+
+* http://download.jboss.org/wildfly/{{ book.wildfly9.version }}/wildfly-{{ book.wildfly9.version }}.zip[Download WildFly 9]
+* http://downloads.jboss.org/apiman/{{ book.apiman.version.release }}/apiman-distro-wildfly9-{{ book.apiman.version.release }}-overlay.zip[Download apiman {{ book.apiman.version.release }}]
+
+....
+curl http://download.jboss.org/wildfly/{{ book.wildfly9.version }}/wildfly-{{ book.wildfly9.version }}.zip -o wildfly-{{ book.wildfly9.version }}.zip
+
+curl http://downloads.jboss.org/apiman/{{ book.apiman.version.release }}/apiman-distro-wildfly9-{{ book.apiman.version.release }}-overlay.zip -o apiman-distro-wildfly9-{{ book.apiman.version.release }}-overlay.zip
+....
+
+=== Unpack
+Once both files have been downloaded, simply unpack both in the same location.
+
+....
+unzip wildfly-{{ book.wildfly9.version }}.zip
+
+unzip -o apiman-distro-wildfly9-{{ book.apiman.version.release }}-overlay.zip -d wildfly-{{ book.wildfly9.version }}
+....
+
+=== Run WildFly 9
+The apiman overlay contains everything needed to run apiman, including:
+
+* apiman binaries (several WAR files)
+* apiman-specific WildFly 9 configuration (*standalone-apiman.xml*)
+* apiman rdbms datasource (h2)
+* pre-configured *admin* user with password *admin123!*
+* pre-configured h2 database for the API Manager (populated with default values)
+* embedded Elasticsearch instance for metrics and gateway storage
+
+For this reason, there is no additional configuration required to run apiman.  Simply start up
+WildFly using the apiman configuration file:
+
+....
+cd wildfly-{{ book.wildfly9.version }}
+./bin/standalone.sh -c standalone-apiman.xml
+....
+
+== Installing in JBoss EAP 7
+If you prefer to run apiman on a Red Hat supported application server, you can install it into JBoss EAP 7.
+In order to install apiman you will need to download both EAP and the apiman overlay distribution.
+Once both are downloaded, it's a simple matter of unpacking both into the same location.
+
+=== Download
+First you will need to download both EAP 7 and apiman:
+
+* http://www.jboss.org/products/eap/download/[Download EAP 7]
+* http://downloads.jboss.org/apiman/{{ book.apiman.version.release }}/apiman-distro-eap7-{{ book.apiman.version.release }}-overlay.zip[Download apiman {{ book.apiman.version.release }}]
+
+=== Unpack
+Once both files have been downloaded, simply unpack both in the same location (see the instructions
+for Wildfly above).
+
+=== Run EAP 7
+The apiman overlay contains everything needed to run apiman, including:
+
+* apiman binaries (several WAR files)
+* apiman-specific EAP configuration (*standalone-apiman.xml*)
+* apiman rdbms datasource (h2)
+* pre-configured *admin* user with password *admin123!*
+* pre-configured h2 database for the API Manager (populated with default values)
+* embedded Elasticsearch instance for metrics and gateway storage
+
+For this reason, there is no additional configuration required to run apiman.
+Simply start up EAP using the apiman configuration file:
+
+....
+cd jboss-eap*
+./bin/standalone.sh -c standalone-apiman.xml
+....
+
+
+== Installing using Docker
+Another option when installing apiman is to use our docker image.
+You're probably pretty familiar with docker if you're going that route, but here is an example of how to start up the apiman docker image:
+
+....
+docker pull jboss/apiman-wildfly
+docker run -it -p 8080:8080 -p 8443:8443 jboss/apiman-wildfly
+....
+
+[NOTE]
+====
+You can find apiman on https://registry.hub.docker.com/repos/apiman/[docker hub].
+====
+
+== Logging In
+Once apiman is running, you should be able to log in to the API Manager by pointing your browser at the following URL:
+
+....
+http://localhost:8080/apimanui/
+....
+
+You may log in with credentials *admin/admin123!*.
+[CAUTION]
+====
+We strongly advise that you immediately change the Keycloak admin user's password, as well as the *_admin_* user found in the *_apiman_* realm!
+
+You can do that by navigating to http://localhost:8080/auth/admin/.
+====

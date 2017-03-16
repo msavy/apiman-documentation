@@ -1,0 +1,8 @@
+= WildFly & EAP Configuration
+
+== Configuration Properties
+
+All of the apiman WARs share a common configuration file called *apiman.properties*, which can be found in *standalone/configuration*.
+This file therefore contains configuration settings for all three applications (API Manager, API Manager UI, API Gateway).
+
+Please refer to the apiman.properties file itself, as well as this document, for more information on each property's purpose and possible values.

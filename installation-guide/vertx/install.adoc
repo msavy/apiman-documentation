@@ -1,0 +1,13 @@
+= Apiman Vert.x Gateway
+
+The apiman Vert.x gateway is our premiere offering and should offer the best performance characteristics of any of platforms.
+
+This implementation is the apiman gateway only, and is normally paired with the servlet version (e.g. WildFly, EAP, Jetty, etc) - although, it can be run headless for specific workloads.
+
+== Installation
+
+Download it and run with
+
+```json
+java -jar ....
+```
