@@ -4,12 +4,32 @@
         "readme": "README.adoc"
     },
     "plugins": [
-        "toggle-chapters",
         "ungrey",
         "splitter",
         "anchors",
         "theme-api"
     ],
+    "pluginsConfig": {
+        "theme-default": {
+            "showLevel": true
+        },
+        "pluginsConfig": {
+            "theme-api": {
+                "split": true,
+                "languages": [
+                    {
+                        "lang": "js",
+                        "name": "JavaScript",
+                        "default": true
+                    },
+                    {
+                        "lang": "go",
+                        "name": "Go"
+                    }
+                ]
+            }
+        }
+    },
     "variables": {
         "apiman": {
             "version": {
@@ -22,26 +42,6 @@
         },
         "wildfly9": {
             "version": "9.0.2.Final"
-        }
-    },
-
-    "pluginsConfig": {
-        "theme-api": {
-            "languages": [
-                {
-                    "lang": "shellsession",
-                    "name": "Shell",
-                    "default": true
-                },
-                {
-                    "lang": "json",
-                    "name": "Vert.x"
-                },
-                {
-                    "lang": "properties",
-                    "name": "Servlet"
-                }
-            ]
         }
     }
 }

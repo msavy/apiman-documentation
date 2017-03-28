@@ -1,0 +1,63 @@
+= Backup & Migration
+:toc:
+
+== Data Export/Import
+
+Apiman has a feature that allows admin users to export all of the configuration data from
+the Manager into a single export file (JSON formatted).  This exported file can then be
+edited (if necessary) and then imported into another instance of apiman.  This feature
+attempts to address the following use-cases:
+
+* Data backups
+* Migrating between environments
+* Upgrading apiman to a new version
+
+Using the feature is simple - you must log into the apiman UI as an admin user, then
+navigate to the "Export/Import" UI page by clicking the "Export/Import Data" link on
+the API Manager Dashboard.  From there you can export or import data.
+
+== Backing Up Your Data
+
+There are multiple strategies for backing up your apiman data, depending on the configuration
+you have chosen (e.g. whether you are using a Database or elasticserach to store your data).
+However, once approach to data backups that is consitent across all configurations is to
+use the Data Export feature of apiman to create a JSON file containing all of the apiman
+configuration data.
+
+This can be done via the UI or via the following API Manager REST endpoint:
+
+```
+https://HOST:PORT/apiman/system/export
+```
+
+== Migrating Data Between Environments
+
+Often times you may have a Test version of apiman deployed, as well as a Production
+version.  Depending on your workflow, you may wish to configure your APIs in the Test
+environment and then migrate that configuration into Production (rather than having to
+re-create the same configuration in Production manually).  This can be accomplished
+by Exporting data from Test and then importing it into Production.
+
+When doing this, note that the Export feature will export the entire set of configuration
+from apiman.  This may be precisely what you want, but many times only a subset of the
+data is desired.  If this is the case, then you will need to edit the resulting JSON
+file to only include the data you wish to migrate.  In the future, we hope to build
+tools that will make this editing of the exported file easier.
+
+Once you have edited the exported file, you can simply log into your production apiman
+instance and use the Export/Import UI page to import the data.
+
+== Upgrading to a New Apiman Version
+
+Whenever you wish to upgrade from an old to a newer version of apiman, you will likely want
+to preserve all of the Plan, API, and Client App configurations you have created.  To
+do this, you can follow these steps:
+
+1. Export all data from OLD VERSION of apiman
+2. Shut down OLD VERSION of apiman
+3. Install NEW VERSION of apiman
+4. Start up NEW VERSION of apiman
+5. Import data into NEW VERSION of apiman (data exported in step #1)
+
+Once these steps are complete, you should have a new version of apiman running
+with all of your existing data.

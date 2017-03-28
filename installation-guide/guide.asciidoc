@@ -81,6 +81,7 @@ database structure when it starts up.  Additional DDLs for various databases can
 *apiman/ddls/*.
 
 === API Gateway Registry
+
 The API Gateway includes a registry that stores the published API and Client App information.
 This registry is updated whenever a user publishes an API (or registers a Client App) from
 within the API Manager UI.  The registry contains just the configuration information necessary for

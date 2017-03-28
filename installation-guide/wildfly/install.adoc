@@ -9,27 +9,41 @@ The apiman primarily targets WildFly 10 as a runtime environment.
 In order to install apiman you will need to download both WildFly 10 and the apiman overlay distribution.
 Once both are downloaded, it's a simple matter of unpacking both into the same location.
 
+{{ start }}++++
+{% method %}
 === Download
 First you will need to download both WildFly 10 and apiman:
 
 * http://download.jboss.org/wildfly/10.1.0.Final/{{ book.wildfly10.version }}.zip[Download WildFly 10]
 * http://downloads.jboss.org/apiman/{{ book.apiman.version.release }}/apiman-distro-wildfly10-{{ book.apiman.version.release }}-overlay.zip[Download apiman {{ book.apiman.version.release }}]
 
+{% common %}
 ....
-curl http://download.jboss.org/wildfly/10.1.0.Final/{{ book.wildfly10.version }}.zip -o {{ book.wildfly10.version }}.zip
+curl http://download.jboss.org/wildfly/{{ book.wildfly10.version }}/wildfly-{{ book.wildfly10.version }}.zip -o wildfly-{{ book.wildfly10.version }}.zip
 
 curl http://downloads.jboss.org/apiman/{{ book.apiman.version.release }}/apiman-distro-wildfly10-{{ book.apiman.version.release }}-overlay.zip -o apiman-distro-wildfly10-{{ book.apiman.version.release }}-overlay.zip
 ....
 
+{% endmethod %}
+{{ end }}++++
+
+{{ start }}++++
+{% method %}
 === Unpack
 Once both files have been downloaded, simply unpack both in the same location.
 
+{% common %}
 ....
 unzip {{ book.wildfly10.version }}.zip
 
 unzip -o apiman-distro-wildfly10-{{ book.apiman.version.release }}-overlay.zip -d {{ book.wildfly10.version }}
 ....
 
+{% endmethod %}
+{{ end }}++++
+
+{{ start }}++++
+{% method %}
 === Run WildFly 10
 The apiman overlay contains everything needed to run apiman, including:
 
@@ -43,37 +57,52 @@ The apiman overlay contains everything needed to run apiman, including:
 For this reason, there is no additional configuration required to run apiman.
 Simply start up WildFly using the apiman configuration file:
 
+{% common %}
 ....
 cd {{ book.wildfly10.version }}
 ./bin/standalone.sh -c standalone-apiman.xml
 ....
+{% endmethod %}
+{{ end }}++++
 
 == Installing in WildFly 9
 The apiman project can target WildFly 9 as a runtime environment.
 In order to install apiman you will need to download both WildFly 9 and the apiman overlay distribution.
 Once both are downloaded, it's a simple matter of unpacking both into the same location.
 
+{{ start }}++++
+{% method %}
 === Download
 First you will need to download both WildFly 9 and apiman:
 
 * http://download.jboss.org/wildfly/{{ book.wildfly9.version }}/wildfly-{{ book.wildfly9.version }}.zip[Download WildFly 9]
 * http://downloads.jboss.org/apiman/{{ book.apiman.version.release }}/apiman-distro-wildfly9-{{ book.apiman.version.release }}-overlay.zip[Download apiman {{ book.apiman.version.release }}]
 
+{% common %}
 ....
 curl http://download.jboss.org/wildfly/{{ book.wildfly9.version }}/wildfly-{{ book.wildfly9.version }}.zip -o wildfly-{{ book.wildfly9.version }}.zip
 
 curl http://downloads.jboss.org/apiman/{{ book.apiman.version.release }}/apiman-distro-wildfly9-{{ book.apiman.version.release }}-overlay.zip -o apiman-distro-wildfly9-{{ book.apiman.version.release }}-overlay.zip
 ....
+{% endmethod %}
+{{ end }}++++
 
+{{ start }}++++
+{% method %}
 === Unpack
 Once both files have been downloaded, simply unpack both in the same location.
 
+{% common %}
 ....
 unzip wildfly-{{ book.wildfly9.version }}.zip
 
 unzip -o apiman-distro-wildfly9-{{ book.apiman.version.release }}-overlay.zip -d wildfly-{{ book.wildfly9.version }}
 ....
+{% endmethod %}
+{{ end }}++++
 
+{{ start }}++++
+{% method %}
 === Run WildFly 9
 The apiman overlay contains everything needed to run apiman, including:
 
@@ -87,10 +116,13 @@ The apiman overlay contains everything needed to run apiman, including:
 For this reason, there is no additional configuration required to run apiman.  Simply start up
 WildFly using the apiman configuration file:
 
+{% common %}
 ....
 cd wildfly-{{ book.wildfly9.version }}
 ./bin/standalone.sh -c standalone-apiman.xml
 ....
+{% endmethod %}
+{{ end }}++++
 
 == Installing in JBoss EAP 7
 If you prefer to run apiman on a Red Hat supported application server, you can install it into JBoss EAP 7.
@@ -107,6 +139,8 @@ First you will need to download both EAP 7 and apiman:
 Once both files have been downloaded, simply unpack both in the same location (see the instructions
 for Wildfly above).
 
+{{ start }}++++
+{% method %}
 === Run EAP 7
 The apiman overlay contains everything needed to run apiman, including:
 
@@ -120,16 +154,21 @@ The apiman overlay contains everything needed to run apiman, including:
 For this reason, there is no additional configuration required to run apiman.
 Simply start up EAP using the apiman configuration file:
 
+{% common %}
 ....
 cd jboss-eap*
 ./bin/standalone.sh -c standalone-apiman.xml
 ....
+{% endmethod %}
+{{ end }}++++
 
-
+{{ start }}++++
+{% method %}
 == Installing using Docker
 Another option when installing apiman is to use our docker image.
 You're probably pretty familiar with docker if you're going that route, but here is an example of how to start up the apiman docker image:
 
+{% common %}
 ....
 docker pull jboss/apiman-wildfly
 docker run -it -p 8080:8080 -p 8443:8443 jboss/apiman-wildfly
@@ -139,18 +178,26 @@ docker run -it -p 8080:8080 -p 8443:8443 jboss/apiman-wildfly
 ====
 You can find apiman on https://registry.hub.docker.com/repos/apiman/[docker hub].
 ====
+{% endmethod %}
+{{ end }}++++
 
+{{ start }}++++
+{% method %}
 == Logging In
 Once apiman is running, you should be able to log in to the API Manager by pointing your browser at the following URL:
 
+{% common %}
 ....
 http://localhost:8080/apimanui/
 ....
 
-You may log in with credentials *admin/admin123!*.
+You may log in with credentials *admin/admin123!*
+
 [CAUTION]
 ====
 We strongly advise that you immediately change the Keycloak admin user's password, as well as the *_admin_* user found in the *_apiman_* realm!
 
 You can do that by navigating to http://localhost:8080/auth/admin/.
 ====
+{% endmethod %}
+{{ end }}++++
