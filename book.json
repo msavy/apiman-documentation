@@ -7,14 +7,14 @@
         "ungrey",
         "splitter",
         "anchors",
-        "theme-api"
+        "theme-apiman"
     ],
     "pluginsConfig": {
         "theme-default": {
             "showLevel": true
         },
         "pluginsConfig": {
-            "theme-api": {
+            "theme-apiman": {
                 "split": true,
                 "languages": [
                     {
