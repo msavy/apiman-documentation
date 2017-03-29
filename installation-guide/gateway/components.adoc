@@ -1,0 +1,36 @@
+= Gateway Components
+
+== API Gateway Registry
+
+The API Gateway includes a registry that stores the published API and Client App information.
+This registry is updated whenever a user publishes an API (or registers a Client App) from within the API Manager UI.
+The registry contains just the configuration information necessary for the API Gateway to properly apply the appropriate policies to all inbound requests.
+
+Out of the box, the API Gateway is configured to use Elasticsearch to store the published/registered data.
+
+The configuration of the Registry can be found in the gateway's config file.
+
+See section 4.2 for more information on modifying Elasticsearch settings.
+
+
+== API Gateway Rate Limiter
+
+Part of the running apiman system is a "Rate Limiter" component.
+
+This component is used by apiman policies to enforce rate limits and uses Elasticsearch to store data.
+
+The configuration of the Rate Limiter component can be found in the gateway's config file.
+
+See section 4.2 for more information on modifying Elasticsearch settings.
+
+== API Gateway Shared State
+
+Part of the running apiman system is a "Shared State" component.
+
+This component is used by apiman policies to share interesting state information across multiple requests.
+
+The shared state component uses Elasticsearch to store data.
+
+The configuration of the Shared State component can be found in the gateway's config file.
+
+See section 4.2 for more information on modifying Elasticsearch settings.

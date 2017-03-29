@@ -1,19 +1,31 @@
 = Apiman Documentation
 
 == Installation Guide
+. link:installation-guide/configuration.adoc[General Config]
 
-. link:installation-guide/install-overview.adoc[Download & Install]
-.. link:installation-guide/vertx/install.adoc[Vert.x Gateway]
-.. link:installation-guide/wildfly/install.adoc[EAP & WildFly]
-... link:installation-guide/wildfly/install.adoc#_installing_in_wildfly_10[WildFly 10]
-... link:installation-guide/wildfly/install.adoc#_installing_in_wildfly_9[WildFly 9]
-... link:installation-guide/wildfly/install.adoc#_installing_in_jboss_eap_7[EAP 7]
-... link:installation-guide/wildfly/install.adoc#_installing_using_docker[Docker]
+=== Download & Install
+. link:installation-guide/vertx/install.adoc[Vert.x Gateway]
+. link:installation-guide/wildfly/install.adoc[EAP & WildFly]
+.. link:installation-guide/wildfly/install.adoc#_installing_in_wildfly_10[WildFly 10]
+.. link:installation-guide/wildfly/install.adoc#_installing_in_wildfly_9[WildFly 9]
+.. link:installation-guide/wildfly/install.adoc#_installing_in_jboss_eap_7[EAP 7]
+.. link:installation-guide/wildfly/install.adoc#_installing_using_docker[Docker]
 
-. link:installation-guide/configuration-overview.adoc[Configuration]
-.. link:installation-guide/gateway/configuration.adoc[Gateway]
-.. link:installation-guide/manager/configuration.adoc[Manager]
-... link:installation-guide/manager/backup-migration.adoc[Backup & Migration]
+=== Configuration
+. link:installation-guide/gateway/configuration.adoc[Gateway]
+.. link:installation-guide/gateway/security.adoc[Security]
+.. link:installation-guide/gateway/components.adoc[Components]
+. link:installation-guide/manager/configuration.adoc[Manager]
+.. link:installation-guide/manager/configuration.adoc#_general_configuration[General Configuration]
+.. link:installation-guide/manager/configuration.adoc#_gateway_api_authentication[Gateway API Authentication]
+.. link:installation-guide/manager/configuration.adoc#_custom_api_catalog[Custom API Catalog]
+.. link:installation-guide/manager/configuration.adoc#_custom_plugin_registry[Custom Plugin Registry]
+.. link:installation-guide/manager/configuration.adoc#__property_replacement_in_policy_config[Policy Config Property Replacement]
+.. link:installation-guide/manager/backup-migration.adoc#_backup_migration[Backup & Migration]
+.. link:installation-guide/manager/backup-migration.adoc#_upgrading_to_a_new_apiman_version[Upgrading]
+.. link:installation-guide/manager/datastores.adoc[Datastores]
+.. link:installation-guide/manager/security.adoc[Security]
+
 
 
 //.. link:installation-guide/vertx/configuration.adoc[Vert.x]

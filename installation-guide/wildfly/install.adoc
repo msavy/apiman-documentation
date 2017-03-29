@@ -44,7 +44,9 @@ unzip -o apiman-distro-wildfly10-{{ book.apiman.version.release }}-overlay.zip -
 
 {{ start }}++++
 {% method %}
+
 === Run WildFly 10
+
 The apiman overlay contains everything needed to run apiman, including:
 
 * apiman binaries (several WAR files)
